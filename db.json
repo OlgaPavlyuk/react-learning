@@ -1,0 +1,25 @@
+{
+  "cards": [
+    {
+      "id": "c-1",
+      "front": "У нас нет хлеба",
+      "back": "There is no bread here",
+      "theme": "there is",
+      "last_repeat": ""
+    },
+    {
+      "id": "c-2",
+      "front": "На стене красивая картина",
+      "back": "There is a beautiful painting on the wall",
+      "theme": "there is",
+      "last_repeat": ""
+    },
+    {
+      "id": "c-3",
+      "front": "В вазе были цветы",
+      "back": "There were flowers in the vase",
+      "theme": "there is",
+      "last_repeat": ""
+    }
+  ]
+}
