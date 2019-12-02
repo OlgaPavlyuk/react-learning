@@ -25,7 +25,7 @@ function App() {
         </main>
         <footer className="footer">
           <div className="container">
-            Footer
+            <a href="https://github.com/OlgaPavlyuk/">github</a>
             <br />
             <a href="https://www.figma.com/file/tRtdlPcgS602OuW5rPSooB/Eggplore-Style-Guide---Freebie-(Copy)?node-id=0%3A1">figma</a>
           </div>

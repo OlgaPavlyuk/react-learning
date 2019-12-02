@@ -19,7 +19,6 @@ export default class ServiceData {
 
   getAllCards = async () => {
     const res = await this.getResource('/cards/');
-    console.log(res);
     return res;
   }
 
@@ -27,6 +26,38 @@ export default class ServiceData {
     const res = await this.getResource('/cards/');
     // filter
     return res;
+  }
+
+  updateCards = async (arr) => {
+    return fetch(`${this._apiBase}/cards/`, {
+      method: 'PUT',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ cards: arr })
+    }).then((data) => {
+      console.log(data);
+      console.log('data changes');
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  updateCard = async (id, data) => {
+    return fetch(`${this._apiBase}/cards/${id}`, {
+      method: 'PATCH',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then((data) => {
+      console.log(data);
+      console.log('data changes');
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
 }

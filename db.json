@@ -4,22 +4,52 @@
       "id": "c-1",
       "front": "У нас нет хлеба",
       "back": "There is no bread here",
-      "theme": "there is",
-      "last_repeat": ""
+      "theme": [
+        "there is"
+      ],
+      "last_repeat": "2019-12-02T16:37:16.497Z",
+      "shown": "false"
     },
     {
       "id": "c-2",
       "front": "На стене красивая картина",
       "back": "There is a beautiful painting on the wall",
-      "theme": "there is",
-      "last_repeat": ""
+      "theme": [
+        "there is"
+      ],
+      "last_repeat": "2019-12-02T16:37:19.199Z",
+      "shown": "false"
     },
     {
       "id": "c-3",
       "front": "В вазе были цветы",
       "back": "There were flowers in the vase",
-      "theme": "there is",
-      "last_repeat": ""
+      "theme": [
+        "there is",
+        "present past"
+      ],
+      "last_repeat": "2019-12-02T16:37:22.081Z",
+      "shown": "false"
+    },
+    {
+      "id": "c-4",
+      "front": "Рыдая, она пошла обратно в дом",
+      "back": "Weeping she walking back to the house",
+      "theme": [
+        "ing"
+      ],
+      "last_repeat": "2019-12-02T16:37:24.611Z",
+      "shown": "false"
+    },
+    {
+      "id": "c-5",
+      "front": "Мне нравится плавание",
+      "back": "I like swimming",
+      "theme": [
+        "ing"
+      ],
+      "last_repeat": "",
+      "shown": "false"
     }
   ]
 }

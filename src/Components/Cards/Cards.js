@@ -1,9 +1,10 @@
 import React from 'react';
+import { uniqueId } from 'lodash';
 import ServiceData from '../../services/serviceData';
 import ErrorMessage from '../Error';
 import Loader from '../Loader';
+import Tag from '../Tag';
 
- 
 class Cards extends React.Component {
   ServiceData = new ServiceData();
 
@@ -21,7 +22,6 @@ class Cards extends React.Component {
   }
 
   onCardsLoaded = (cards) => {
-    console.log(cards);
     this.setState({
       cards,
       error: false,
@@ -38,12 +38,18 @@ class Cards extends React.Component {
     });
   }
 
+  renderTags = (tag) => <Tag title={tag} key={uniqueId()} />;
+
   renderRow = (card) => {
+    const { last_repeat, theme } = card;
+    const repeatDate = last_repeat !== '' ? new Date(last_repeat).toLocaleDateString() : '-';
     return (
       <tr key={card.id}>
         <td>{card.front}</td>
         <td>{card.back}</td>
-        <td>{card.last_repeat}</td>
+        <td>{repeatDate}</td>
+        <td>{card.shown}</td>
+        <td>{ theme.map(this.renderTags) }</td>
       </tr>
     );
   }
@@ -57,6 +63,8 @@ class Cards extends React.Component {
             <th>Front</th>
             <th>Back</th>
             <th>Last repeat</th>
+            <th>Shown</th>
+            <th>Themes</th>
           </tr>
         </thead>
         <tbody>
