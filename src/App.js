@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
@@ -9,10 +9,17 @@ import MainContent from './Components/MainContent';
 import Elements from './Components/Elements';
 
 function App() {
+  /* todo: the theme changing in a proper way  */
+  const [ theme, setTheme ] = useState('pink');
+
+  const changeTheme = (newTheme) => {
+    return setTheme(newTheme);
+  }
+
   return (
     <Router>
-      <div className="app purple">
-        <Header />
+      <div className={`app ${theme}`}>
+        <Header theme={theme} onChangeTheme={changeTheme} />
         <main>
           <section className="content">
             <div className="container">
