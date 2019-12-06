@@ -4,11 +4,8 @@
   "private": true,
   "homepage": "http://OlgaPavlyuk.github.io/react-learning",
   "dependencies": {
-<<<<<<< HEAD
     "lodash": "^4.17.15",
-=======
     "classnames": "^2.2.6",
->>>>>>> 4baa4537b2658da9a7561bcaa5cae5874ba420fe
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
