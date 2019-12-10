@@ -1,21 +1,66 @@
 import React, { useState } from 'react';
+import { uniqueId } from 'lodash';
+import Tag from '../Tag';
+import RotateIcon from '../../Icons/RotateIcon';
+import './card.css';
 
 function Card(props) {
-  const [ rotate, setRotate ] = useState('front');
+  const { front, back, theme, id } = props.data;
+  const [rotate, setRotate] = useState('front');
   const classes = `card ${rotate}`;
 
-  const rotateCard = (e) => {
-    return setRotate(rotate === 'front' ? 'back' : 'front');
-  }
+  const rotateCard = () => {
+    setRotate(rotate === 'front' ? 'back' : 'front');
+  };
 
-  const { front, back } = props.data;
+  const renderTags = (tag) => <Tag title={tag} key={uniqueId()} />;
 
-  return (
-    <div className={ classes } onClick={ rotateCard }>
-      <div className="front text">{front}</div>
-      <div className="back text">{back}</div>
+  const renderFront = () => (
+    <div className="card__inner card__inner--front">
+      <div className="card__text">{ front }</div>
+      <button className="btn btn-inverse btn-small" onClick={rotateCard}>Flip</button>
+      <div className="tag__wrapper">
+        {theme.map(renderTags)}
+      </div>
     </div>
   );
-};
+
+  const renderBack = () => (
+    <div className="card__inner card__inner--back">
+      <button
+        className="btn btn-inverse btn-small card__btn-flip"
+        onClick={rotateCard}
+      >
+        <RotateIcon width="22" height="22" />
+      </button>
+      <div className="card__text">{back}</div>
+      <div className="btn__wrapper">
+        <button
+          className="btn btn-inverse btn-small"
+          onClick={() => {
+            props.updateData(id, 'repeat');
+          }}
+        >
+          Hard
+        </button>
+        <button
+          className="btn btn-primary btn-small"
+          onClick={() => {
+            props.updateData(id, 'known');
+          }}
+        >
+          Easy
+        </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className={ classes }>
+      { renderFront() }
+      { renderBack() }
+    </div>
+  );
+}
 
 export default Card;

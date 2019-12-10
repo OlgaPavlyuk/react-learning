@@ -1,8 +1,10 @@
 import React from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 import ServiceData from '../../services/serviceData';
 import ErrorMessage from '../Error';
 import Loader from '../Loader';
-import Card from '../Cards/Card';
+import Card from './Card';
+import Cards from './Cards';
 
 class Learn extends React.Component {
   ServiceData = new ServiceData();
@@ -12,13 +14,14 @@ class Learn extends React.Component {
     error: null,
     errorMsg: '',
     loading: true,
-    currentCard: null
+    currentCard: null,
+    finish: false,
   };
 
   componentDidMount() {
     this.ServiceData.getLearningCards()
-    .then(this.onCardsLoaded)
-    .catch(this.onError)
+      .then(this.onCardsLoaded)
+      .catch(this.onError);
   }
 
   onCardsLoaded = (cards) => {
@@ -27,7 +30,7 @@ class Learn extends React.Component {
       error: false,
       errorMsg: '',
       loading: false,
-      currentCard: 2,
+      currentCard: 0,
     });
   }
 
@@ -39,18 +42,60 @@ class Learn extends React.Component {
     });
   }
 
+  updateData = (id, cardState) => {
+    const { cards, currentCard } = this.state;
+
+    this.ServiceData.updateCard(id, { status: cardState, lastRepeat: new Date() })
+      .then(() => {
+        console.log(`${id} updated`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    if (currentCard === cards.length - 1) {
+      return this.setState({
+        finish: true,
+      });
+      // return this.setState({
+      //   currentCard: 0,
+      // });
+    }
+
+    const nextCard = currentCard + 1;
+    return this.setState({
+      currentCard: nextCard,
+    });
+  }
+
   render() {
-    const { error, errorMsg, loading, cards, currentCard } = this.state;
+    const { error, errorMsg, loading, cards, currentCard, finish } = this.state;
     if (loading) {
-      return <Loader />
+      return <Loader />;
     }
 
     if (error) {
-      return <ErrorMessage message={errorMsg}/>
+      return <ErrorMessage message={errorMsg} />;
+    }
+
+    if (finish) {
+      return <Cards />;
     }
 
     return (
-      <Card data={cards[currentCard]}/>
+      <CSSTransitionGroup
+        component="div"
+        className="card-container"
+        transitionName="fade"
+        transitionEnterTimeout={400}
+        transitionLeaveTimeout={300}
+      >
+        <Card
+          key={currentCard}
+          data={cards[currentCard]}
+          updateData={this.updateData}
+        />
+      </CSSTransitionGroup>
     );
   }
 }

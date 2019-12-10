@@ -1,0 +1,115 @@
+.card-container {
+  perspective: 40rem;
+  min-height: 15rem;
+}
+
+.card {
+  max-width: 20rem;
+  height: 15rem;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  transition: transform 0.2s ease-in;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.card__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  backface-visibility: hidden;
+}
+
+.card__inner--back {
+  transform: rotateY(-180deg);
+}
+
+
+.card__text {
+  flex-grow: 1;
+  font-size: 1.25rem;
+  letter-spacing: 0.025em;
+  font-weight: 700;
+  /* margin: 2rem 0; */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn__wrapper {
+  display: flex;
+}
+
+.btn {
+  width: 100%;
+}
+
+.btn + .btn {
+  margin-left: 0.5rem;
+}
+
+.tag__wrapper {
+  margin-top: 0.5rem;
+}
+
+.card__btn-flip {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+}
+
+.card__btn-flip:hover {
+  color: #fff;
+}
+
+.card__btn-flip svg {
+  fill: currentColor;
+}
+
+.fade-enter {
+  opacity: 0.01;
+  transform: translateX(-100%) scale(0);
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition: transform .35s ease-in, opacity .35s ease-in;
+  z-index: 1;
+}
+
+.fade-leave {
+  opacity: 1;
+  transform: rotateY(180deg) translate3d(0, 0, 0) scale(1);
+}
+
+.fade-leave.fade-leave-active .card__inner--back {
+  backface-visibility: visible;
+  pointer-events: none;
+}
+
+.fade-leave.fade-leave-active .card__inner--front {
+  visibility: hidden;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transform: rotateY(180deg) translate3d(-100%, 0, 0) scale(0);
+  transition: opacity .35s ease-out, transform .35s ease-out;
+}

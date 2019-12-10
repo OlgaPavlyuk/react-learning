@@ -5,10 +5,13 @@
   "homepage": "http://OlgaPavlyuk.github.io/react-learning",
   "dependencies": {
     "classnames": "^2.2.6",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "lodash": "^4.17.15",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-transition-group": "^1.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,7 +22,20 @@
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "airbnb-base",
+      "react-app"
+    ],
+    "rules": {
+      "linebreak-style": 0,
+      "object-curly-newline": [
+        "error",
+        {
+          "ImportDeclaration": "never",
+          "ExportDeclaration": "never"
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [
