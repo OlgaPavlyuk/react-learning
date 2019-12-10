@@ -168,6 +168,12 @@ main {
 
 .content {
   padding: 5rem 0;
+  height: 100%;
+}
+
+.footer {
+  border-top: 1px solid #ECEBED;
+  padding: 2rem 1rem;
 }
 
 button{
@@ -180,6 +186,7 @@ button{
   color: inherit;
   font: inherit;
   line-height: normal;
+  cursor: pointer;
 }
 
 button:focus {
@@ -190,7 +197,7 @@ button:focus {
   padding: 0.75em 2em;
   font-weight: 500;
   border: 2px solid transparent;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color ease-in-out 0.2s;
   border-radius: var(--border-radius);
 }
 
@@ -473,13 +480,14 @@ th, td {
 .tag {
   display: inline-flex;
   align-items: center;
-  margin: 0 0.5rem 0.5rem 0;
+  margin: 0.5rem 0.5rem 0 0;
   padding: 0.5em 0.75em;
   border-radius: var(--border-radius);
   font-size: 75%;
   line-height: 1;
   color: var(--THEME-COLOR);
   background-color: var(--THEME-COLOR-FADED);
+  transition: 0.2s ease-in-out;
   user-select: none;
 }
 
@@ -498,3 +506,6 @@ th, td {
 .tag__btn path {
   fill: currentColor;
 }
+
+
+

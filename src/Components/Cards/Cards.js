@@ -12,13 +12,13 @@ class Cards extends React.Component {
     cards: [],
     error: null,
     errorMsg: '',
-    loading: true
+    loading: true,
   };
 
   componentDidMount() {
     this.ServiceData.getAllCards()
-    .then(this.onCardsLoaded)
-    .catch(this.onError)
+      .then(this.onCardsLoaded)
+      .catch(this.onError);
   }
 
   onCardsLoaded = (cards) => {
@@ -41,14 +41,14 @@ class Cards extends React.Component {
   renderTags = (tag) => <Tag title={tag} key={uniqueId()} />;
 
   renderRow = (card) => {
-    const { last_repeat, theme } = card;
-    const repeatDate = last_repeat !== '' ? new Date(last_repeat).toLocaleDateString() : '-';
+    const { lastRepeat, theme } = card;
+    const repeatDate = lastRepeat !== '' ? new Date(lastRepeat).toLocaleDateString() : '-';
     return (
       <tr key={card.id}>
         <td>{card.front}</td>
         <td>{card.back}</td>
         <td>{repeatDate}</td>
-        <td>{card.shown}</td>
+        <td>{card.status}</td>
         <td>{ theme.map(this.renderTags) }</td>
       </tr>
     );
@@ -63,7 +63,7 @@ class Cards extends React.Component {
             <th>Front</th>
             <th>Back</th>
             <th>Last repeat</th>
-            <th>Shown</th>
+            <th>Status</th>
             <th>Themes</th>
           </tr>
         </thead>
@@ -78,11 +78,11 @@ class Cards extends React.Component {
     const { error, errorMsg, loading } = this.state;
 
     if (loading) {
-      return <Loader />
+      return <Loader />;
     }
 
     if (error) {
-      return <ErrorMessage message={errorMsg} />
+      return <ErrorMessage message={errorMsg} />;
     }
 
     return (

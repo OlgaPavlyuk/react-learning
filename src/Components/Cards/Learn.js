@@ -1,8 +1,10 @@
 import React from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 import ServiceData from '../../services/serviceData';
 import ErrorMessage from '../Error';
 import Loader from '../Loader';
-import Card from '../Cards/Card';
+import Card from './Card';
+import Cards from './Cards';
 
 class Learn extends React.Component {
   ServiceData = new ServiceData();
@@ -13,13 +15,13 @@ class Learn extends React.Component {
     errorMsg: '',
     loading: true,
     currentCard: null,
-    finish: false
+    finish: false,
   };
 
   componentDidMount() {
     this.ServiceData.getLearningCards()
-    .then(this.onCardsLoaded)
-    .catch(this.onError)
+      .then(this.onCardsLoaded)
+      .catch(this.onError);
   }
 
   onCardsLoaded = (cards) => {
@@ -40,27 +42,10 @@ class Learn extends React.Component {
     });
   }
 
-  updateData = (id, card_state) => {
+  updateData = (id, cardState) => {
     const { cards, currentCard } = this.state;
-    let nextCard;
-    console.log(cards.length);
-    if (currentCard === cards.length - 1 ) {
-      // this.ServiceData.updateCards(cards)
-      // .then(() => {
-      //   console.log('good');
-      //   return this.setState({
-      //     finish: true
-      //   });
-      // })
-      // .catch((err) => {
-      //   console.log(err);
-      // })
-      console.log('good');
-      return this.setState({
-        finish: true
-      });
-    } else {
-      this.ServiceData.updateCard(id, {shown: card_state, last_repeat: new Date()})
+
+    this.ServiceData.updateCard(id, { status: cardState, lastRepeat: new Date() })
       .then(() => {
         console.log(`${id} updated`);
       })
@@ -68,30 +53,49 @@ class Learn extends React.Component {
         console.log(err);
       });
 
-      nextCard = currentCard + 1;
-      //cards[currentCard].shown = card_state;
-      this.setState({
-        currentCard: nextCard
+    if (currentCard === cards.length - 1) {
+      return this.setState({
+        finish: true,
       });
-    }   
+      // return this.setState({
+      //   currentCard: 0,
+      // });
+    }
+
+    const nextCard = currentCard + 1;
+    return this.setState({
+      currentCard: nextCard,
+    });
   }
 
   render() {
     const { error, errorMsg, loading, cards, currentCard, finish } = this.state;
     if (loading) {
-      return <Loader />
+      return <Loader />;
     }
 
     if (error) {
-      return <ErrorMessage message={errorMsg}/>
+      return <ErrorMessage message={errorMsg} />;
     }
 
     if (finish) {
-      return <div>Good Job</div>
+      return <Cards />;
     }
 
     return (
-      <Card key={currentCard} data={cards[currentCard]} updateData={this.updateData}/>
+      <CSSTransitionGroup
+        component="div"
+        className="card-container"
+        transitionName="fade"
+        transitionEnterTimeout={400}
+        transitionLeaveTimeout={300}
+      >
+        <Card
+          key={currentCard}
+          data={cards[currentCard]}
+          updateData={this.updateData}
+        />
+      </CSSTransitionGroup>
     );
   }
 }

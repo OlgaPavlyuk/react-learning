@@ -1,38 +1,66 @@
 import React, { useState } from 'react';
 import { uniqueId } from 'lodash';
 import Tag from '../Tag';
+import RotateIcon from '../../Icons/RotateIcon';
 import './card.css';
 
 function Card(props) {
-  const [ rotate, setRotate ] = useState('front');
+  const { front, back, theme, id } = props.data;
+  const [rotate, setRotate] = useState('front');
   const classes = `card ${rotate}`;
 
   const rotateCard = () => {
-    return setRotate('back');
-  }
+    setRotate(rotate === 'front' ? 'back' : 'front');
+  };
 
   const renderTags = (tag) => <Tag title={tag} key={uniqueId()} />;
 
-  const { front, back, theme, id } = props.data;
-
-  return (
-    <div className="card-container" >
-      <div className={ classes }>
-        <div className="card__inner">                   
-          <div className="card__text front">{front}</div>
-          <div className="card__text back">{back}</div>
-          <button className="btn btn-inverse btn-small front" onClick={ rotateCard }>Flip</button>
-          <div className="btn__wrapper">
-            <button className="btn btn-inverse btn-small back" onClick={ () => { props.updateData(id, "false") } }>Repeat</button>
-            <button className="btn btn-primary btn-small back" onClick={ () => { props.updateData(id, "true") } }>I know</button>
-          </div>
-          <div className="tag__wrapper">
-            { theme.map(renderTags) }
-          </div> 
-        </div>
-      </div>      
+  const renderFront = () => (
+    <div className="card__inner card__inner--front">
+      <div className="card__text">{ front }</div>
+      <button className="btn btn-inverse btn-small" onClick={rotateCard}>Flip</button>
+      <div className="tag__wrapper">
+        {theme.map(renderTags)}
+      </div>
     </div>
   );
-};
+
+  const renderBack = () => (
+    <div className="card__inner card__inner--back">
+      <button
+        className="btn btn-inverse btn-small card__btn-flip"
+        onClick={rotateCard}
+      >
+        <RotateIcon width="22" height="22" />
+      </button>
+      <div className="card__text">{back}</div>
+      <div className="btn__wrapper">
+        <button
+          className="btn btn-inverse btn-small"
+          onClick={() => {
+            props.updateData(id, 'repeat');
+          }}
+        >
+          Hard
+        </button>
+        <button
+          className="btn btn-primary btn-small"
+          onClick={() => {
+            props.updateData(id, 'known');
+          }}
+        >
+          Easy
+        </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className={ classes }>
+      { renderFront() }
+      { renderBack() }
+    </div>
+  );
+}
 
 export default Card;

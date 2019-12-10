@@ -7,8 +7,8 @@
       "theme": [
         "there is"
       ],
-      "last_repeat": "2019-12-02T16:37:16.497Z",
-      "shown": "false"
+      "lastRepeat": "2019-12-10T10:14:29.391Z",
+      "status": "repeat"
     },
     {
       "id": "c-2",
@@ -17,8 +17,8 @@
       "theme": [
         "there is"
       ],
-      "last_repeat": "2019-12-02T16:37:19.199Z",
-      "shown": "false"
+      "lastRepeat": "2019-12-10T10:14:31.147Z",
+      "status": "repeat"
     },
     {
       "id": "c-3",
@@ -28,8 +28,8 @@
         "there is",
         "present past"
       ],
-      "last_repeat": "2019-12-02T16:37:22.081Z",
-      "shown": "false"
+      "lastRepeat": "2019-12-10T10:14:32.922Z",
+      "status": "repeat"
     },
     {
       "id": "c-4",
@@ -38,8 +38,8 @@
       "theme": [
         "ing"
       ],
-      "last_repeat": "2019-12-02T16:37:24.611Z",
-      "shown": "false"
+      "lastRepeat": "2019-12-10T10:14:34.841Z",
+      "status": "repeat"
     },
     {
       "id": "c-5",
@@ -48,8 +48,8 @@
       "theme": [
         "ing"
       ],
-      "last_repeat": "",
-      "shown": "false"
+      "lastRepeat": "2019-12-10T10:14:36.387Z",
+      "status": "repeat"
     }
   ]
 }
