@@ -1,20 +1,23 @@
 export default class ServiceData {
   constructor() {
-    this._apiBase = 'http://localhost:3000';
+    this.apiBase = 'http://localhost:3000';
   }
 
-  getResource = (url) => {
-    return fetch(`${this._apiBase}${url}`)
-      .then(response => {
+  /* there are some bad code for the dynamic behavior emulation on the githubpages */
+
+  getResource = async (url) => {
+    const source = process.env.NODE_ENV !== 'production'
+      ? `${this.apiBase}${url}`
+      : 'https://github.com/OlgaPavlyuk/react-learning/blob/master/db.json';
+    console.log(source);
+    return fetch(source)
+      .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
         return response.json();
       })
-      .catch(err => {
-        console.log(err);
-        return Promise.reject(new Error(`Could not fetch ${url}: ${err.message}`));
-      })
+      .catch((err) => Promise.reject(new Error(`Could not fetch ${url}: ${err.message}`)));
   }
 
   getAllCards = async () => {
@@ -29,35 +32,46 @@ export default class ServiceData {
   }
 
   updateCards = async (arr) => {
-    return fetch(`${this._apiBase}/cards/`, {
-      method: 'PUT',
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ cards: arr })
-    }).then((data) => {
-      console.log(data);
+    try {
+      const data = await fetch(`${this.apiBase}/cards/`, {
+        method: 'PUT',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cards: arr }),
+      });
       console.log('data changes');
-    }).catch((err) => {
-      console.log(err);
-    });
+      return data;
+    } catch (error) {
+      console.log(error);
+      return new Error(`Could not update cards: ${error.message}`);
+    }
   }
 
   updateCard = async (id, data) => {
-    return fetch(`${this._apiBase}/cards/${id}`, {
-      method: 'PATCH',
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then((data) => {
-      console.log(data);
-      console.log('data changes');
-    }).catch((err) => {
-      console.log(err);
-    });
-  }
+    if (process.env.NODE_ENV === 'production') {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log('fake update Card');
+          resolve('fake update Card');
+        }, 50);
+      });
+    }
 
+    try {
+      const response = await fetch(`${this.apiBase}/cards/${id}`, {
+        method: 'PATCH',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+      return new Error(`Could not update card: ${error.message}`);
+    }
+  }
 }
