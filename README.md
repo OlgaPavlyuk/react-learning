@@ -1,3 +1,12 @@
+You can see this project on https://olgapavlyuk.github.io/react-learning/
+
+To start json-server in development mode:
+
+### `json-server --watch db.json`
+
+then `npm start`
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
