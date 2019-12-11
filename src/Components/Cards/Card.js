@@ -4,6 +4,10 @@ import Tag from '../Tag';
 import RotateIcon from '../../Icons/RotateIcon';
 import './card.css';
 
+/* todo:
+
+*/
+
 function Card(props) {
   const { front, back, theme, id } = props.data;
   const [rotate, setRotate] = useState('front');
@@ -18,9 +22,9 @@ function Card(props) {
   const renderFront = () => (
     <div className="card__inner card__inner--front">
       <div className="card__text">{ front }</div>
-      <button className="btn btn-inverse btn-small" onClick={rotateCard}>Flip</button>
+      <button className="btn btn-inverse btn-small" onClick={ rotateCard }>Flip</button>
       <div className="tag__wrapper">
-        {theme.map(renderTags)}
+        { theme.map(renderTags) }
       </div>
     </div>
   );
@@ -29,11 +33,11 @@ function Card(props) {
     <div className="card__inner card__inner--back">
       <button
         className="btn btn-inverse btn-small card__btn-flip"
-        onClick={rotateCard}
+        onClick={ rotateCard }
       >
         <RotateIcon width="22" height="22" />
       </button>
-      <div className="card__text">{back}</div>
+      <div className="card__text">{ back }</div>
       <div className="btn__wrapper">
         <button
           className="btn btn-inverse btn-small"
@@ -51,6 +55,9 @@ function Card(props) {
         >
           Easy
         </button>
+      </div>
+      <div className="tag__wrapper">
+        { theme.map(renderTags) }
       </div>
     </div>
   );

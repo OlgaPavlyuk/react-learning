@@ -57,9 +57,6 @@ class Learn extends React.Component {
       return this.setState({
         finish: true,
       });
-      // return this.setState({
-      //   currentCard: 0,
-      // });
     }
 
     const nextCard = currentCard + 1;
