@@ -1,0 +1,62 @@
+{
+  "cards": {
+    "byIds": {
+      "c-1" : {
+          "id": "c-1",
+          "front": "У нас нет хлеба",
+          "back": "There is no bread here",
+          "tags": [
+            "there is"
+          ],
+          "lastRepeat": "2019-12-11T17:23:19.312Z",
+          "status": "repeat"
+        },
+      "c-2": {
+        "id": "c-2",
+        "front": "На стене красивая картина",
+        "back": "There is a beautiful painting on the wall",
+        "tags": [
+          "there is"
+        ],
+        "lastRepeat": "2019-12-11T11:55:30.509Z",
+        "status": "repeat"
+      },
+      "c-3": {
+        "id": "c-3",
+        "front": "В вазе были цветы",
+        "back": "There were flowers in the vase",
+        "tags": [
+          "there is",
+          "present past"
+        ],
+        "lastRepeat": "2019-12-11T09:35:53.905Z",
+        "status": "repeat"
+      },
+      "c-4": {
+        "id": "c-4",
+        "front": "Рыдая, она пошла обратно в дом",
+        "back": "Weeping she walking back to the house",
+        "tags": [
+          "ing"
+        ],
+        "lastRepeat": "2019-12-11T09:35:55.758Z",
+        "status": "repeat"
+      },
+      "c-5": {
+        "id": "c-5",
+        "front": "Мне нравится плавание",
+        "back": "I like swimming",
+        "tags": [
+          "ing"
+        ],
+        "lastRepeat": "2019-12-11T09:35:57.932Z",
+        "status": "known"
+      }
+    },
+    "allIds": ["c-1", "c-2", "c-3", "c-4", "c-5"]
+  },
+  "tests": {
+    "q": {},
+    "a": {}
+  }
+}

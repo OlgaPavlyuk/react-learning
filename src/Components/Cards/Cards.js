@@ -1,94 +1,30 @@
 import React from 'react';
-import { uniqueId } from 'lodash';
-import ServiceData from '../../services/serviceData';
-import ErrorMessage from '../Error';
-import Loader from '../Loader';
-import Tag from '../Tag';
+import { connect } from 'react-redux';
+import CardsTable from './CardsTable';
+import { getCards } from '../../selectors/index';
+
+const mapStateToProps = (state) => ({
+  cards: getCards(state),
+  loading: state.cards.loading,
+  error: state.cards.error,
+});
 
 class Cards extends React.Component {
-  ServiceData = new ServiceData();
-
-  state = {
-    cards: [],
-    error: null,
-    errorMsg: '',
-    loading: true,
-  };
-
-  componentDidMount() {
-    this.ServiceData.getAllCards()
-      .then(this.onCardsLoaded)
-      .catch(this.onError);
-  }
-
-  onCardsLoaded = (cards) => {
-    this.setState({
-      cards,
-      error: false,
-      errorMsg: '',
-      loading: false,
-    });
-  }
-
-  onError = (error) => {
-    this.setState({
-      error: true,
-      errorMsg: error.message,
-      loading: false,
-    });
-  }
-
-  renderTags = (tag) => <Tag title={tag} key={uniqueId()} />;
-
-  renderRow = (card) => {
-    const { lastRepeat, theme } = card;
-    const repeatDate = lastRepeat !== '' ? new Date(lastRepeat).toLocaleDateString() : '-';
-    return (
-      <tr key={card.id}>
-        <td>{card.front}</td>
-        <td>{card.back}</td>
-        <td>{repeatDate}</td>
-        <td>{card.status}</td>
-        <td>{ theme.map(this.renderTags) }</td>
-      </tr>
-    );
-  }
-
-  renderTable = () => {
-    const { cards } = this.state;
-    return (
-      <table>
-        <thead>
-          <tr>
-            <th>Front</th>
-            <th>Back</th>
-            <th>Last repeat</th>
-            <th>Status</th>
-            <th>Themes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cards.map(this.renderRow)}
-        </tbody>
-      </table>
-    );
-  }
-
   render() {
-    const { error, errorMsg, loading } = this.state;
+    const { error, loading, cards } = this.props;
 
     if (loading) {
-      return <Loader />;
+      return <div>Loading</div>;
     }
 
     if (error) {
-      return <ErrorMessage message={errorMsg} />;
+      return <div>{error}</div>;
     }
 
     return (
-      this.renderTable()
+      <CardsTable list={cards} />
     );
   }
 }
 
-export default Cards;
+export default connect(mapStateToProps)(Cards);
