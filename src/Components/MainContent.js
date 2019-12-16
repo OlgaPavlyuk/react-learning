@@ -1,27 +1,69 @@
 import React from 'react';
-import { Link  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../styles/main-page.css';
 
 function MainContent() {
   return (
-    <div className="container">
-      <nav className="">
-        <ul className="">
-          <li className="">
-            <Link to='/' className="">Home</Link>
-          </li>
-          <li className="">
-            <Link to='/cards/' className="">All cards</Link>
-          </li>
-          <li className="">
-            <Link to='/learn/' className="">Learn</Link>
-          </li>
-          <li className="">
-            <Link to='/elements/' className="">Elements</Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  )
+    <nav className="main-page__nav">
+      <ul className="main-page__list">
+        <li className="main-page__item">
+          <h3 className="h3">Show all cards</h3>
+          <table className="main-page__table">
+            <thead>
+              <tr>
+                <th>Front</th>
+                <th>Back</th>
+                <th>Status</th>
+                <th>Themes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>идти домой</td>
+                <td>go home</td>
+                <td>known</td>
+                <td>
+                  <div className="tag">preposition</div>
+                </td>
+              </tr>
+              <tr>
+                <td>трудолюбивый</td>
+                <td>hardworking</td>
+                <td>known</td>
+                <td>
+                  <div className="tag">work</div>
+                </td>
+              </tr>
+              <tr>
+                <td>трудолюбивый</td>
+                <td>hardworking</td>
+                <td>known</td>
+                <td>
+                  <div className="tag">work</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <Link to='/cards/' className="main-page__link main-page__link--faded"></Link>
+        </li>
+        <li className="main-page__item">
+          <h3 className="h3">Learn cards</h3>
+          <div className="fake-card">
+            <div className="fake-card__inner fake-card__front">
+              <div className="fake-card__text">Иди домой</div>
+              <button className="btn btn-primary fake-card__btn">Flip</button>
+            </div>
+            <div className="fake-card__inner fake-card__back">
+              <div className="fake-card__text">Go home</div>
+              <button className="btn btn-inverse fake-card__btn">Hard</button>
+              <button className="btn btn-primary fake-card__btn">Easy</button>
+            </div>
+          </div>
+          <Link to='/learn/' className="main-page__link"></Link>
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
 export default MainContent;
