@@ -109,6 +109,11 @@ main {
   flex: 1 1 100%;
 }
 
+ol, ul {
+  padding-left: 0;
+  list-style: none;
+}
+
 /*  header  */
 
 .header {
@@ -126,10 +131,12 @@ main {
   justify-content: flex-end;
 }
 
+.nav--footer {
+  justify-content: flex-start;
+}
+
 .nav__list {
   display: flex;
-  padding: 0;
-  list-style: none;
 }
 
 .nav__item {
@@ -173,7 +180,18 @@ main {
 
 .footer {
   border-top: 1px solid #ECEBED;
-  padding: 2rem 1rem;
+  padding: 1rem;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: var(--text-color);
+  border-bottom: 1px solid currentColor;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer__link:hover {
+  color: var(--THEME-COLOR);
 }
 
 button{
@@ -507,5 +525,14 @@ th, td {
   fill: currentColor;
 }
 
+.text-containter {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
 
+.text-containter p,
+.text-containter i {
+  line-height: 1.5;
+}
 

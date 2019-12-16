@@ -7,7 +7,7 @@
       "theme": [
         "there is"
       ],
-      "lastRepeat": "2019-12-11T11:55:28.689Z",
+      "lastRepeat": "2019-12-16T14:53:49.532Z",
       "status": "known"
     },
     {
@@ -17,7 +17,7 @@
       "theme": [
         "there is"
       ],
-      "lastRepeat": "2019-12-11T11:55:30.509Z",
+      "lastRepeat": "2019-12-16T14:53:51.007Z",
       "status": "known"
     },
     {
@@ -28,7 +28,7 @@
         "there is",
         "present past"
       ],
-      "lastRepeat": "2019-12-11T09:35:53.905Z",
+      "lastRepeat": "2019-12-16T14:53:52.383Z",
       "status": "known"
     },
     {
@@ -38,8 +38,8 @@
       "theme": [
         "ing"
       ],
-      "lastRepeat": "2019-12-11T09:35:55.758Z",
-      "status": "known"
+      "lastRepeat": "2019-12-16T14:53:54.578Z",
+      "status": "repeat"
     },
     {
       "id": "c-5",
@@ -48,8 +48,8 @@
       "theme": [
         "ing"
       ],
-      "lastRepeat": "2019-12-11T09:35:57.932Z",
-      "status": "known"
+      "lastRepeat": "2019-12-14T11:48:29.403Z",
+      "status": "repeat"
     }
   ]
 }
