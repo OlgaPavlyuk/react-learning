@@ -2,21 +2,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import SettingsIcon from '../../Icons/SettingsIcon';
 import './themeSwitcher.css';
-import { changeThemeAction } from '../../actions/actions';
+import { changeTheme } from '../../store/actions/themeActions';
 
 const mapStateToProps = ({ theme }) => ({
   currentTheme: theme.colorTheme,
 });
 
 const actionCreators = {
-  changeTheme: changeThemeAction,
+  changeColorTheme: changeTheme,
 };
 
 const themeColors = ['purple', 'hot-pink', 'orange', 'green', 'blue', 'yellow', 'pink'];
 
 const ThemeSwitcher = (props) => {
   const [shownSwitcher, setShownSwitcher] = useState('hidden');
-  const { currentTheme, changeTheme } = props;
+  const { currentTheme, changeColorTheme } = props;
   const ref = useRef();
 
   function handleClickOutside(event) {
@@ -38,7 +38,7 @@ const ThemeSwitcher = (props) => {
 
   const onChangeRadio = (e) => {
     const newTheme = e.target.value;
-    changeTheme(newTheme);
+    changeColorTheme(newTheme);
   };
 
   const renderThemeItems = (itemTheme) => (

@@ -1,8 +1,3 @@
-export const changeThemeAction = (newTheme) => ({
-  type: 'CHANGE_THEME',
-  payload: newTheme,
-});
-
 export const FETCH_CARDS_BEGIN = 'FETCH_CARDS_BEGIN';
 export const FETCH_CARDS_SUCCESS = 'FETCH_CARDS_SUCCESS';
 export const FETCH_CARDS_FAILURE = 'FETCH_CARDS_FAILURE';
@@ -14,7 +9,7 @@ export const fetchCardsBegin = () => ({
 
 export const fetchCardsSuccess = (cards) => ({
   type: FETCH_CARDS_SUCCESS,
-  payload: { cards },
+  payload: cards,
 });
 
 export const fetchCardsFailure = (error) => ({
@@ -27,7 +22,12 @@ export const addCardAction = (card) => ({
   payload: card,
 });
 
-export const toggleCardStatus = (id) => ({
-  type: 'TOGGLE_STATUS',
-  payload: { id },
+export const toggleCard = (id, status) => ({
+  type: 'TOGGLE_CARD',
+  payload: { id, status },
+});
+
+export const updateCards = (newCardsById) => ({
+  type: 'UPDATE_CARDS',
+  payload: newCardsById,
 });
