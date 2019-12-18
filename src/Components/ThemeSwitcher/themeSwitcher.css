@@ -63,6 +63,10 @@
   white-space: nowrap;
 }
 
+.theme-switcher__title {
+  display: block;
+}
+
 .theme-switcher__bullet {
   position: absolute;
   top: 0;
@@ -78,5 +82,3 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
-
-

@@ -1,32 +1,31 @@
 export default class ServiceData {
   constructor() {
-    this.apiBase = 'http://localhost:3000';
+    this.apiBase = process.env.NODE_ENV === 'production' ? '.' : 'http://localhost:3000';
   }
+
+  /* https://olgapavlyuk.github.io/react-learning/db.json */
 
   /* there are some bad code for the dynamic behavior emulation on the githubpages */
 
-  getResource = async (url) => {
-    const source = process.env.NODE_ENV !== 'production'
-      ? `${this.apiBase}${url}`
-      : 'https://github.com/OlgaPavlyuk/react-learning/blob/master/db.json';
-    console.log(source);
-    return fetch(source)
-      .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        return response.json();
-      })
-      .catch((err) => Promise.reject(new Error(`Could not fetch ${url}: ${err.message}`)));
+  getResource = async () => {
+    try {
+      const response = await fetch(`${this.apiBase}/db.json`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    } catch (error) {
+      return new Error(`Could not fetch: ${error.message}`);
+    }
   }
 
   getAllCards = async () => {
-    const res = await this.getResource('/cards/');
+    const res = await this.getResource();
     return res;
   }
 
   getLearningCards = async () => {
-    const res = await this.getResource('/cards/');
+    const res = await this.getResource();
     // filter
     return res;
   }

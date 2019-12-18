@@ -19,29 +19,29 @@ function MainContent() {
             </thead>
             <tbody>
               <tr>
-                <td>идти домой</td>
-                <td>go home</td>
+                <td>Я устал ждать</td>
+                <td>I'm tired of waiting</td>
                 <td>known</td>
                 <td>
                   <div className="tag">preposition</div>
                 </td>
               </tr>
               <tr>
-                <td>трудолюбивый</td>
-                <td>hardworking</td>
-                <td>known</td>
+                <td>Мне позвонили вчера</td>
+                <td>I was called yesterday</td>
+                <td>repeat</td>
                 <td>
-                  <div className="tag">work</div>
+                  <div className="tag">passive</div>
                 </td>
               </tr>
-              <tr>
-                <td>трудолюбивый</td>
-                <td>hardworking</td>
+              {/* <tr>
+                <td>Будет дождливо?</td>
+                <td>Will it be rainy?</td>
                 <td>known</td>
                 <td>
-                  <div className="tag">work</div>
+                  <div className="tag">to be</div>
                 </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
           <Link to='/cards/' className="main-page__link main-page__link--faded"></Link>
@@ -50,11 +50,11 @@ function MainContent() {
           <h3 className="h3">Learn cards</h3>
           <div className="fake-card">
             <div className="fake-card__inner fake-card__front">
-              <div className="fake-card__text">Иди домой</div>
+              <div className="fake-card__text">Я устал ждать</div>
               <button className="btn btn-primary fake-card__btn">Flip</button>
             </div>
             <div className="fake-card__inner fake-card__back">
-              <div className="fake-card__text">Go home</div>
+              <div className="fake-card__text">I'm tired of waiting</div>
               <button className="btn btn-inverse fake-card__btn">Hard</button>
               <button className="btn btn-primary fake-card__btn">Easy</button>
             </div>
