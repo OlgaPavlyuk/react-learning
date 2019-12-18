@@ -1,0 +1,112 @@
+{
+  "cards": {
+    "byIds": {
+      "c-1" : {
+          "id": "c-1",
+          "front": "У нас нет хлеба",
+          "back": "There is no bread here",
+          "tags": [
+            "there is"
+          ],
+          "lastRepeat": "2019-12-11T17:23:19.312Z",
+          "status": "known"
+        },
+      "c-2": {
+        "id": "c-2",
+        "front": "На стене красивая картина",
+        "back": "There is a beautiful painting on the wall",
+        "tags": [
+          "there is"
+        ],
+        "lastRepeat": "2019-12-11T11:55:30.509Z",
+        "status": "known"
+      },
+      "c-3": {
+        "id": "c-3",
+        "front": "В вазе были цветы",
+        "back": "There were flowers in the vase",
+        "tags": [
+          "there is",
+          "present past"
+        ],
+        "lastRepeat": "2019-12-11T09:35:53.905Z",
+        "status": "known"
+      },
+      "c-4": {
+        "id": "c-4",
+        "front": "Рыдая, она пошла обратно в дом",
+        "back": "Weeping she walking back to the house",
+        "tags": [
+          "ing"
+        ],
+        "lastRepeat": "2019-12-11T09:35:55.758Z",
+        "status": "known"
+      },
+      "c-5": {
+        "id": "c-5",
+        "front": "Мне нравится вязание",
+        "back": "I like knitting",
+        "tags": [
+          "ing"
+        ],
+        "lastRepeat": "2019-12-11T09:35:57.932Z",
+        "status": "known"
+      },
+      "c-6": {
+        "id": "c-6",
+        "front": "Ему приходится рано вставать",
+        "back": "He has to get up early",
+        "tags": [
+          "modal verb"
+        ],
+        "lastRepeat": "",
+        "status": "repeat"
+      },
+      "c-7": {
+        "id": "c-7",
+        "front": "Я подумал, что её идея была просто потрясающей",
+        "back": "I thought her new idea was absolutely fascinating",
+        "tags": [
+          "adverb"
+        ],
+        "lastRepeat": "",
+        "status": "repeat"
+      },
+      "c-8": {
+        "id": "c-8",
+        "front": "Все что-то делают",
+        "back": "Everybody/everyone is doing something",
+        "tags": [
+          "pronouns"
+        ],
+        "lastRepeat": "2019-12-11T17:23:19.312Z",
+        "status": "repeat"
+      },
+      "c-9": {
+        "id": "c-9",
+        "front": "Никто никогда ничего не узнает",
+        "back": "Nobody will ever find out anything",
+        "tags": [
+          "double negation"
+        ],
+        "lastRepeat": "",
+        "status": "repeat"
+      },
+      "c-10": {
+        "id": "c-10",
+        "front": "Она думала, что ее возьмут на работу",
+        "back": "She thought she would get the job",
+        "tags": [
+          "sequence  of tenses"
+        ],
+        "lastRepeat": "",
+        "status": "repeat"
+      }
+    },
+    "allIds": ["c-1", "c-2", "c-3", "c-4", "c-5","c-6","c-7","c-8","c-9","c-10"]
+  },
+  "tests": {
+    "q": {},
+    "a": {}
+  }
+}

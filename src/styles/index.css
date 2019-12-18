@@ -536,3 +536,6 @@ th, td {
   line-height: 1.5;
 }
 
+.title--centred {
+  text-align: center;
+}

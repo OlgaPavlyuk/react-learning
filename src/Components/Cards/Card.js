@@ -4,12 +4,8 @@ import Tag from '../Tag';
 import RotateIcon from '../../Icons/RotateIcon';
 import './card.css';
 
-/* todo:
-
-*/
-
 function Card(props) {
-  const { front, back, theme, id } = props.data;
+  const { front, back, tags, id } = props.data;
   const [rotate, setRotate] = useState('front');
   const classes = `card ${rotate}`;
 
@@ -24,7 +20,7 @@ function Card(props) {
       <div className="card__text">{ front }</div>
       <button className="btn btn-inverse btn-small" onClick={ rotateCard }>Flip</button>
       <div className="tag__wrapper">
-        { theme.map(renderTags) }
+        { tags.map(renderTags) }
       </div>
     </div>
   );
@@ -42,7 +38,7 @@ function Card(props) {
         <button
           className="btn btn-inverse btn-small"
           onClick={() => {
-            props.updateData(id, 'repeat');
+            props.clickHandler(id, 'repeat');
           }}
         >
           Hard
@@ -50,14 +46,14 @@ function Card(props) {
         <button
           className="btn btn-primary btn-small"
           onClick={() => {
-            props.updateData(id, 'known');
+            props.clickHandler(id, 'known');
           }}
         >
           Easy
         </button>
       </div>
       <div className="tag__wrapper">
-        { theme.map(renderTags) }
+        { tags.map(renderTags) }
       </div>
     </div>
   );
