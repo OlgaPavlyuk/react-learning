@@ -54,6 +54,24 @@ const cards = (state = initialState, action) => {
           },
         },
       };
+    case 'ADD_CARD':
+      console.log(action.payload);
+      return {
+        ...state,
+        cardsData: {
+          allIds: [
+            ...state.cardsData.allIds,
+            action.payload.id,
+          ],
+          byIds: {
+            ...state.cardsData.byIds,
+            [action.payload.id]: {
+              ...action.payload,
+              status: 'repeat',
+            },
+          },
+        },
+      };
     default:
       return state;
   }
