@@ -17,7 +17,7 @@ export const fetchCardsFailure = (error) => ({
   payload: { error },
 });
 
-export const addCardAction = (card) => ({
+export const addCard = (card) => ({
   type: 'ADD_CARD',
   payload: card,
 });
