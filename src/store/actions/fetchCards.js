@@ -1,15 +1,15 @@
 import { fetchCardsBegin, fetchCardsSuccess, fetchCardsFailure } from './cardsActions';
 
-const apiBase = process.env.NODE_ENV === 'production' ? '.' : 'http://localhost:3000';
+const apiBase = 'http://my-json-server.typicode.com/OlgaPavlyuk/react-learning';
 
 const fetchCards = () => (dispatch) => {
   dispatch(fetchCardsBegin());
-  fetch(`${apiBase}/db.json`)
+  fetch(`${apiBase}/cards`)
     .then(handleErrors)
     .then((res) => res.json())
     .then((json) => {
-      dispatch(fetchCardsSuccess(json.cards));
-      return json.cards;
+      dispatch(fetchCardsSuccess(json));
+      return json;
     })
     .catch((error) => dispatch(fetchCardsFailure(error)));
 };
