@@ -1,10 +1,6 @@
+## Demo
 You can see this project on https://olgapavlyuk.github.io/react-learning/
-
-To start json-server in development mode:
-
-### `json-server --watch db.json`
-
-then `npm start`
+This project is just my attempt to write something with React, to try using Redux, hooks and other interesting technologies I hadn't used in real work yet. 
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
