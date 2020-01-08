@@ -25,6 +25,7 @@ class App extends React.Component {
             <section className="content">
               <div className="container">
                 <Route path='/' component={MainContent} exact />
+                <Route path='/react-learning/' component={MainContent} exact />
                 <Route path='/cards/' component={Cards} exact />
                 <Route path='/learn/' component={LearnContainer} exact />
                 <Route path='/elements/' component={Elements} exact />

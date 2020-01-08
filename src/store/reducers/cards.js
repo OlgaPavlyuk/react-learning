@@ -55,7 +55,6 @@ const cards = (state = initialState, action) => {
         },
       };
     case 'ADD_CARD':
-      console.log(action.payload);
       return {
         ...state,
         cardsData: {

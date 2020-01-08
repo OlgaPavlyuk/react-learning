@@ -1,6 +1,6 @@
 import { fetchCardsBegin, fetchCardsSuccess, fetchCardsFailure } from './cardsActions';
 
-const apiBase = 'http://my-json-server.typicode.com/OlgaPavlyuk/react-learning';
+const apiBase = 'https://my-json-server.typicode.com/OlgaPavlyuk/react-learning';
 
 const fetchCards = () => (dispatch) => {
   dispatch(fetchCardsBegin());
