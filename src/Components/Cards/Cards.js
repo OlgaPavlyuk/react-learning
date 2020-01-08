@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CardsTable from './CardsTable';
-import CardForm from './CardForm';
+import AddCard from './AddCard';
 import Loader from '../Loader';
 import { getCards } from '../../store/selectors/index';
 import fetchCards from '../../store/actions/fetchCards';
@@ -38,7 +38,7 @@ class Cards extends React.Component {
     return (
       <>
         <h2>Add new card</h2>
-        <CardForm />
+        <AddCard />
         <CardsTable list={cards} />
       </>
     );

@@ -252,6 +252,14 @@ button:focus {
   text-transform: capitalize;
 }
 
+.btn:disabled,
+.btn:disabled:hover {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #fff;
+}
+
+
 
 /* loader */
 .loader {
@@ -362,6 +370,7 @@ th, td {
 .input__wrapper {
   display: block;
   margin-bottom: 1rem;
+  position: relative;
 }
 
 .input-text {
