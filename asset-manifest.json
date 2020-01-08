@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/react-learning/static/css/main.4949c38e.chunk.css",
-    "main.js": "/react-learning/static/js/main.f8cf2d27.chunk.js",
-    "main.js.map": "/react-learning/static/js/main.f8cf2d27.chunk.js.map",
+    "main.css": "/react-learning/static/css/main.a660bd74.chunk.css",
+    "main.js": "/react-learning/static/js/main.88bf2970.chunk.js",
+    "main.js.map": "/react-learning/static/js/main.88bf2970.chunk.js.map",
     "runtime-main.js": "/react-learning/static/js/runtime-main.a837d129.js",
     "runtime-main.js.map": "/react-learning/static/js/runtime-main.a837d129.js.map",
-    "static/js/2.e9834fff.chunk.js": "/react-learning/static/js/2.e9834fff.chunk.js",
-    "static/js/2.e9834fff.chunk.js.map": "/react-learning/static/js/2.e9834fff.chunk.js.map",
+    "static/js/2.96da459f.chunk.js": "/react-learning/static/js/2.96da459f.chunk.js",
+    "static/js/2.96da459f.chunk.js.map": "/react-learning/static/js/2.96da459f.chunk.js.map",
     "index.html": "/react-learning/index.html",
-    "precache-manifest.53ed08ce1f39d49c95b1f4d24ab18439.js": "/react-learning/precache-manifest.53ed08ce1f39d49c95b1f4d24ab18439.js",
+    "precache-manifest.03c06bedcf7ee43429c54d701358d381.js": "/react-learning/precache-manifest.03c06bedcf7ee43429c54d701358d381.js",
     "service-worker.js": "/react-learning/service-worker.js",
-    "static/css/main.4949c38e.chunk.css.map": "/react-learning/static/css/main.4949c38e.chunk.css.map",
+    "static/css/main.a660bd74.chunk.css.map": "/react-learning/static/css/main.a660bd74.chunk.css.map",
     "static/media/stackoverflow.jpeg": "/react-learning/static/media/stackoverflow.c581bfd9.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.a837d129.js",
-    "static/js/2.e9834fff.chunk.js",
-    "static/css/main.4949c38e.chunk.css",
-    "static/js/main.f8cf2d27.chunk.js"
+    "static/js/2.96da459f.chunk.js",
+    "static/css/main.a660bd74.chunk.css",
+    "static/js/main.88bf2970.chunk.js"
   ]
 }
